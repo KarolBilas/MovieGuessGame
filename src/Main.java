@@ -6,6 +6,7 @@ public class Main {
         double random = Math.random() * 25;
         int selectedMovieNumber = (int) random;
         String selectedMovie;
+        int selectedMovieLength;
         String[] movieList = new String[25];
 
         File file = new File("movies.txt");
@@ -19,6 +20,26 @@ public class Main {
             i++;
         }
         selectedMovie = movieList[selectedMovieNumber];
-        System.out.printf(selectedMovie);
+        selectedMovieLength = selectedMovie.length();
+
+        boolean hasWon = false;
+        while(!hasWon) {
+            System.out.println("Guess the movie name:");
+            for (i = 0; i < selectedMovieLength; i++) {
+                if (selectedMovie.charAt(i) != ' ') {
+                    System.out.print("_");
+                } else {
+                    System.out.print(" ");
+                }
+
+            }
+            System.out.println("");
+            System.out.println("Choose a letter: ");
+            Scanner scanner = new Scanner(System.in);
+            String letter = scanner.nextLine();
+        }
+
+
+
     }
 }
