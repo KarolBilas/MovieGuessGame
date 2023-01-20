@@ -22,11 +22,19 @@ public class Main {
         selectedMovie = movieList[selectedMovieNumber];
         selectedMovieLength = selectedMovie.length();
 
+        String letters = "";
         boolean hasWon = false;
+        int tries = 10;
         while(!hasWon) {
-            System.out.println("Guess the movie name:");
+            System.out.println("Guess the movie name! You have " + tries + "chances remaining");
             for (i = 0; i < selectedMovieLength; i++) {
-                if (selectedMovie.charAt(i) != ' ') {
+                String letterCheck = "";
+                letterCheck += selectedMovie.charAt(i);
+
+                if(letters.contains(letterCheck)){
+                   System.out.print(selectedMovie.charAt(i));
+                }
+                else if (selectedMovie.charAt(i) != ' ') {
                     System.out.print("_");
                 } else {
                     System.out.print(" ");
@@ -34,9 +42,13 @@ public class Main {
 
             }
             System.out.println("");
-            System.out.println("Choose a letter: ");
+           System.out.println("Choose a letter: ");
             Scanner scanner = new Scanner(System.in);
-            String letter = scanner.nextLine();
+            char letter = scanner.nextLine().charAt(0);
+            letters += letter;
+
+
+
         }
 
 
